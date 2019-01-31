@@ -1,0 +1,256 @@
+.js-tabs ul.tab_menu{
+  list-style-type:none;
+  margin:0px;
+  padding:0px;
+}
+.js-tabs ul.tab_menu li{
+  display:inline-block;
+  background:#666;
+  margin:0px;
+  padding:2px;
+  color: #fff
+}
+.js-tabs .tab_menu li a{
+  padding:3px;
+}
+.js-tabs .tab_menu li a:link,
+.js-tabs .tab_menu li a:visited{
+  background-color:#666;
+  color:#fff;
+}
+.js-tabs .tab_menu li a.active:link,
+.js-tabs .tab_menu li a.active:visited{
+  background-color:#444;
+  color:#fff;
+}
+.js-tabs .tab_menu li a:hover{
+  background-color:#333;
+  color:#f0f;
+}
+.tab_content{
+  position:relative;
+  height:400px;
+}
+
+.tab_content div.page{
+  overflow: auto;
+  width:100%;
+  height:100%;
+  position:absolute;
+  color:#222;
+}
+
+iframe.page{
+  overflow: auto;
+  width:100%;
+  height:100%;
+  position:absolute;
+}
+
+div.js_tabs_inline_box{
+  float: left;
+  width: 56%;
+  height: 400px;
+  margin: 0% 2% 2%;
+  padding: 0px;
+}
+
+div.Attack_Starter_inline_box{
+  float: left;
+  width: 36%;
+  margin: 0% 2% 2% 0%;
+  height: 424px;
+  padding: 0px;
+  border: solid #020202;
+}
+
+
+#page1-1{
+  background-color:rgb(253, 253, 253);
+  border: solid #020202;
+}
+#page1-2{
+  background-color:rgb(253, 253, 253);
+  border: solid #020202;
+}
+#page1-3{
+  background-color:rgb(253, 253, 253);
+  border: solid #020202;
+}
+
+#list1{
+  background-color:rgb(253, 253, 253);
+  border: solid #020202;
+}
+
+.webshell_pulldown {
+	overflow: hidden;
+  width: 90%;
+  margin: 1% 2% 2% 8%;
+  padding: 0% 4%;
+  text-align: center;
+  position: relative;
+	border: 2px solid #020202;
+  border-radius: 50px;
+	background: #ffffff;
+}
+
+.webshell_pulldown select {
+  width: 100%;
+  height: 2em;
+	padding: 0% 8%;
+	cursor: pointer;
+	text-indent: 0.01px;
+	text-overflow: ellipsis;
+	border: none;
+	outline: none;
+	background: transparent;
+	background-image: none;
+	box-shadow: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+.webshell_pulldown select::-ms-expand {
+    display: none;
+}
+
+.webshell_pulldown::before {
+	position: absolute;
+	top: 0.8em;
+	right: 0.8em;
+	width: 0;
+	height: 0;
+	padding: 0;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #020202;
+	pointer-events: none;
+}
+.webshell_pulldown select {
+	padding: 0% 8%;
+	color: #020202;
+}
+
+.webshell_bar {
+  float: left;
+  width: 100%;
+  height: auto;
+  font-size: 120%;
+  margin: 0;
+  padding: 0% 4% 1%;
+  border: none;
+  box-sizing: border-box;
+  background-color: #020202;
+  color: #ffffff;
+
+  text-align: left;
+  font-weight: bold;
+}
+
+.webshell_form_name {
+  float: left;
+  width: 100%;
+  height: auto;
+  padding: 2% 4%;
+}
+
+.webshell_pulldown {
+  float: left;
+  width: 60%;
+  height: auto;
+  padding: 0%;
+}
+
+.container {
+  text-align: center;
+}
+
+/* ここから下がボタンのCSS　*/
+.btn-border {
+  float: left;
+  width: auto;
+  height: 2.2em;
+  text-align: left;
+  border: 2px solid #020202;
+  color: #020202;
+  padding: 2px 8px;
+  margin: 6px 0px 2px 8px;
+  border-radius: 50px;
+  transition: .4s;
+}
+
+.btn-border:hover {
+  background-color: #020202;
+  border-color: #020202;
+  color: #FFF;
+}
+
+/* ここから下がvuln about　*/
+.vunln_about {
+  float: left;
+  width: 94%;
+  margin:  0% 2% 2% 2%;
+  padding: 0px;
+  border: solid #020202;
+}
+
+.vuln_about_bar {
+  float: left;
+  width: 100%;
+  height: auto;
+  font-size: 120%;
+  margin: 0;
+  padding: 0% 2% 0%;
+  border: none;
+  box-sizing: border-box;
+  background-color: #020202;
+  color: #ffffff;
+
+  text-align: left;
+  font-weight: bold;
+}
+
+/* table の CSS*/
+th,td {
+  border: solid 1px;          /* 枠線指定 */
+  padding: 0 1em;
+}
+
+table {
+  border-collapse:  collapse; /* セルの線を重ねる */
+  width:  100%;               /* 幅指定 */
+  table-layout: fixed;        /* セルの幅計算指定 */
+}
+
+/*graph box css*/
+
+.graph_box {
+  float: left;
+  width: 94%;
+  margin:  0% 2% 2% 2%;
+  padding: 0px;
+  border: solid #020202;
+}
+
+.graph_bar {
+  float: left;
+  width: 100%;
+  height: auto;
+  font-size: 120%;
+  margin: 0;
+  padding: 0% 2% 0%;
+  border: none;
+  box-sizing: border-box;
+  background-color: #020202;
+  color: #ffffff;
+
+  text-align: left;
+  font-weight: bold;
+}
+
+.executing_str {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 0 1em 0 1em;
+}

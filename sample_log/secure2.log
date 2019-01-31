@@ -1,0 +1,19 @@
+Dec  2 09:39:02 localhost sshd[4409]: Received disconnect from 10.37.129.2 port 55325:11: Bye Bye [preauth]
+Dec  2 09:39:02 localhost sshd[4409]: Disconnected from 10.37.129.2 port 55325 [preauth]
+Dec  2 09:39:02 localhost unix_chkpwd[4422]: password check failed for user (banban)
+Dec  2 09:39:02 localhost sshd[4411]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=10.37.129.2  user=banban
+Dec  2 09:39:02 localhost unix_chkpwd[4423]: password check failed for user (banban)
+Dec  2 09:39:02 localhost sshd[4412]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=10.37.129.2  user=banban
+Dec  2 09:39:02 localhost unix_chkpwd[4424]: password check failed for user (banban)
+Dec  2 09:39:02 localhost sshd[4413]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=10.37.129.2  user=banban
+Dec  2 09:39:02 localhost unix_chkpwd[4425]: password check failed for user (banban)
+Dec  2 09:39:02 localhost sshd[4414]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=10.37.129.2  user=banban
+Dec  2 09:39:04 localhost sshd[4411]: Failed password for banban from 10.37.129.2 port 55326 ssh2
+Dec  2 09:39:04 localhost sshd[4412]: Failed password for banban from 10.37.129.2 port 55327 ssh2
+Dec  2 09:39:04 localhost unix_chkpwd[4429]: password check failed for user (banban)
+Dec  2 09:39:04 localhost sshd[4413]: Failed password for banban from 10.37.129.2 port 55328 ssh2
+Dec  2 09:39:04 localhost sshd[4414]: Failed password for banban from 10.37.129.2 port 55329 ssh2
+Dec  2 09:39:04 localhost unix_chkpwd[4432]: password check failed for user (banban)
+Dec  2 09:39:04 localhost unix_chkpwd[4431]: password check failed for user (banban)
+Dec  2 09:39:04 localhost unix_chkpwd[4430]: password check failed for user (banban)
+Dec  2 09:39:06 localhost sshd[4411]: Failed password for banban from 10.37.129.2 port 55326 ssh2

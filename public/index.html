@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <title>tail -f __TITLE__</title> -->
+    <title>Log Viewer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./assets/styles/default.css">
+    <link rel="stylesheet" type="text/css" href="./assets/styles/tab_style.css">
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+    <script src="http://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <link rel="icon" href="./favicon.ico">
+</head>
+
+<body>
+    <nav class="topbar navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-10">
+                    <span class="navbar-brand">Log Viewer</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="js_tabs_inline_box">
+        <div class="js-tabs">
+            <ul id="tab_menu1" class="tab_menu">
+                <li><a href="#page1-1">/log/httpd/access-log</a></li>
+                <li><a href="#page1-2">/log/secure</a></li>
+                <li><a href="#page1-3">/log/mariadb/mariadb.log</a></li>
+            </ul>
+            <div id="tab_content1" class="tab_content">
+                <div id="page1-1" class="page">
+                    <iframe class="page" src="http://127.0.0.1:9001/"></iframe>
+                </div>
+                <div id="page1-2" class="page">
+                    <iframe class="page" src="http://127.0.0.1:9002/"></iframe>
+                </div>
+                <div id="page1-3" class="page">
+                    <iframe class="page" src="http://127.0.0.1:9003/"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Attack_Starter_inline_box">
+        <div class="webshell_bar"> Webshell </div>
+        <div class="webshell_form_name">
+            SCANNER
+        </div>
+        <div class="webshell_pulldown">
+            <form name="scan"> 
+                <select name="scancmd">
+                        <option value="nikto">Service scan (nikto)</option>
+                        <option value="ssh brute force attack">ssh brute force attack</option>
+                        <option value="wpscan user">wpscan(ユーザスキャン)</option>
+                        <option value="wpscan login">wpscan(login attack)</option>
+                </select>
+            </form>
+        </div>
+        <div class="container">
+                <a class="btn-border" onclick="send_cmd_scan()" >SCAN</a>
+        </div>
+
+        <div class="webshell_form_name">
+                EXPLOIT
+        </div>
+
+        <div class="webshell_pulldown">
+            <form name="exploit">
+                <select name="exploitcmd">
+                        <option value="phpmailer_arg_injection">phpmailer_arg_injection</option>
+                        <option value="aaaaa">aaaaa</option>
+                        <option value="bbbbb">bbbbb</option>
+                        <option value="ccccc">ccccc</option>
+                </select>
+            </form>
+        </div>
+        <div class="container">
+                    <a class="btn-border" onclick="send_cmd_exploit()">Exploit</a>
+        </div>
+        <div class="webshell_form_name">
+            <p>Now: [<span class="executing_str" id="executing"></span> ] executing...</p>
+        </div>
+        </div>
+
+    <div class="vunln_about">
+        <div class="vuln_about_bar">
+                About Vunlnerability
+        </div>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td>Directory Traversal</td>
+                </tr>
+                    <tr>
+                    <th>Signature</th>
+                    <td>GET /axis/serice/Version?/xsd=../../../../../../../../../../etc/paswd</td>
+                </tr>
+                    <tr>
+                    <th>Impact</th>
+                    <td>Middle</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>Apache Axis before 1.5.2, as used in IBM WebSphere Application Server (WAS) 7.0 through 7.0.0.12..(略)..[CVE-2010-1632] </td>
+                </tr>
+                <tr>
+                    <th>Reference</th>
+                    <td>日経xTech: https://tech.nikkeibp.co.jp/it/article/COLUMN/20100711/350089/<br>
+                        Directory Traversal attack - Wikipedia: https://en.wikipedia.org/wiki/Directory_traversal_attack</td>
+                </tr>
+            </tbody>
+    </table>
+    </div>  
+
+    <div class="graph_box">
+        <div class="graph_bar">
+            Number of log
+        </div>
+        <canvas id="LineGraph"></canvas>
+        <script src="mychart.js"></script>
+    </div>
+</body>
+
+<script>
+(function(){
+var menu = document.getElementById('tab_menu1');
+var content = document.getElementById('tab_content1');
+var menus = menu.getElementsByTagName('a');
+var current; // 現在の状態を保持する変数
+for (var i = 0, l = menus.length;i < l; i++){
+  tab_init(menus[i], i);
+}
+function tab_init(link, index){
+  var id = link.hash.slice(1);
+  var page = document.getElementById(id);
+  if (!current){ // 状態の初期化
+    current = {page:page, menu:link};
+    page.style.display = 'block';
+    link.className = 'active';
+  } else {
+    page.style.display = 'none';
+  }
+  link.onclick = function(){
+    current.page.style.display = 'none';
+    current.menu.className = '';
+    page.style.display = 'block';
+    link.className = 'active';
+    current.page = page;
+    current.menu = link;
+    return false;
+  };
+}
+})();
+</script>
+
+</html>

@@ -1,0 +1,11 @@
+
+190131 23:30:49 InnoDB: Initializing buffer pool, size = 128.0M
+190131 23:30:49 InnoDB: Completed initialization of buffer pool
+190131 23:30:49 InnoDB: highest supported file format is Barracuda.
+190131 23:30:50  InnoDB: Waiting for the background threads to start
+190131 23:30:51 Percona XtraDB (http://www.percona.com) 5.5.59-MariaDB-38.11 started; log sequence number 2573610
+190131 23:30:51 [Note] Plugin 'FEEDBACK' is disabled.
+190131 23:30:51 [Note] Server socket created on IP: '0.0.0.0'.
+190131 23:30:51 [Note] Event Scheduler: Loaded 0 events
+190131 23:30:51 [Note] /usr/libexec/mysqld: ready for connections.
+Version: '5.5.60-MariaDB'  socket: '/var/lib/mysql/mysql.sock'  port: 3306  MariaDB Server
