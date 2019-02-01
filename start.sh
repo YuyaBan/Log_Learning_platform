@@ -2,17 +2,14 @@
 
 ./kill_ssh_and_frontail.sh
 
-echo "" > ./log/access.log
-echo "" > ./log/secure.log
-echo "" > ./log/mariadb.log
+echo start > ./access.log
+echo start > ./secure.log
+echo start > ./mariadb.log
 
 ./log_gather.sh&
 echo gather_OK
 sleep 1s
 
-#echo start > ./access.log
-#echo start > ./secure.log
-#echo start > ./mariadb.log
 #echo log_clear_OK
 #sleep 1s
 

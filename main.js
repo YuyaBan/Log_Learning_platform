@@ -63,32 +63,38 @@ exec("wc -l " + log2 +"| awk '{print $1}'", (err, stdout, stderr) => {
 
 io.sockets.on("connection", function(socket){
     console.log("io.socket clear!");
-    setInterval(() => {
-        exec("wc -l " + log1 +"| awk '{print $1}'", (err, stdout, stderr) => {
-            if (err) { 
-                console.log("err" +err); 
-            }
-            if (stderr) {
-                console.log("stderr" + stderr);
-            }
-            obj.ac_cnt = stdout - sum_aclog;
-            sum_aclog = stdout;
-        });
-        exec("wc -l " + log2 +"| awk '{print $1}'", (err, stdout, stderr) => {
-            if (err) { 
-                console.log("err" +err); 
-            }
-            if (stderr) {
-                console.log("stderr" + stderr);
-            }
-            obj.sc_cnt = stdout -sum_sclog;
-            sum_sclog = stdout;
-        });
-        // クライアント側に送るためのfunction
-        //console.log("access2:" + obj.ac_cnt);
-        //console.log("secure2:" + obj.sc_cnt);
-        io.sockets.emit("graph update", obj);
-    }, 10000);
+
+    // log update
+    socket.on("log check", function(){
+        log_check();
+        io.sockets.emit("graph update",obj);
+    })
+    // setInterval(() => {
+    //     exec("wc -l " + log1 +"| awk '{print $1}'", (err, stdout, stderr) => {
+    //         if (err) { 
+    //             console.log("err" +err); 
+    //         }
+    //         if (stderr) {
+    //             console.log("stderr" + stderr);
+    //         }
+    //         obj.ac_cnt = stdout - sum_aclog;
+    //         sum_aclog = stdout;
+    //     });
+    //     exec("wc -l " + log2 +"| awk '{print $1}'", (err, stdout, stderr) => {
+    //         if (err) { 
+    //             console.log("err" +err); 
+    //         }
+    //         if (stderr) {
+    //             console.log("stderr" + stderr);
+    //         }
+    //         obj.sc_cnt = stdout -sum_sclog;
+    //         sum_sclog = stdout;
+    //     });
+    //     // クライアント側に送るためのfunction
+    //     //console.log("access2:" + obj.ac_cnt);
+    //     //console.log("secure2:" + obj.sc_cnt);
+    //     io.sockets.emit("graph update", obj);
+    // }, 10000);
     
     // web shell
     socket.on("exploit", function(cmd){
@@ -150,6 +156,30 @@ io.sockets.on("connection", function(socket){
     function response(msg){
         io.sockets.emit("cmd start", msg);
     }
+
+    function log_check(){
+        exec("wc -l " + log1 +"| awk '{print $1}'", (err, stdout, stderr) => {
+            if (err) { 
+                console.log("err" +err); 
+            }
+            if (stderr) {
+                console.log("stderr" + stderr);
+            }
+            obj.ac_cnt = stdout - sum_aclog;
+            sum_aclog = stdout;
+        });
+        exec("wc -l " + log2 +"| awk '{print $1}'", (err, stdout, stderr) => {
+            if (err) { 
+                console.log("err" +err); 
+            }
+            if (stderr) {
+                console.log("stderr" + stderr);
+            }
+            obj.sc_cnt = stdout -sum_sclog;
+            sum_sclog = stdout;
+        });
+    }
+
 });
 
 // var port = process.env.PORT || 5000;

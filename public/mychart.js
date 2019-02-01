@@ -122,10 +122,8 @@ setInterval(function(){
 setInterval(function(){
     wc_secure = wc_secure + 30;
 }, 10000);
-
+*/
 
 var id = setInterval(function(){
-    add();
-    if(wc_secure > 800){　
-      clearInterval(id);　//idをclearIntervalで指定している
-    }}, 5000);*/
+    socket.emit("log check");
+    }, 3000);
